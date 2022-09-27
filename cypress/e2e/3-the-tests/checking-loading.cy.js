@@ -6,6 +6,12 @@ Cypress.on('uncaught:exception', () => {
   return false
 })
 
+Cypress.Server.defaults({
+  ignore: (xhr) => {
+      return true;
+  }
+})
+
 context('Checking Loading', () => {
   before(() => {
     cy.clearCookies()
@@ -30,5 +36,41 @@ context('Checking Loading', () => {
         cy.get('button[type=submit]').click()
       }
     })
+  })
+
+
+  it('adminpage', () => {
+    cy.wait(5000)
+    cy.visit(Cypress.env('TARGET_ADMIN_LOCATION'))
+    cy.location().should((location) => {
+      expect(location.href).to.equal(Cypress.env('TARGET_ADMIN_LOCATION'))
+    })
+    cy.get('.ant-empty-image').should('not.exist')
+  })
+
+  it('open activity', () => {
+    cy.wait(10000)
+    cy.get('#editActionundefined')
+      .first()
+      .click()
+    cy.location().should((location) => {
+      expect(location.href).to.equal(Cypress.env('TARGET_ADMIN_LOCATION') + '/actividad')
+    })
+    cy.wait(5000)
+    // cy.document().should('have.text', 'Temas')
+  })
+
+  it('change tag', () => {
+    cy.wait(5000)
+    cy.get('div#rc-tabs-0-tab-2', { timeout: 20000 }).click()
+    cy.wait(5000)
+  })
+
+  it('survey loaded', () => {
+    cy.get('input[placeholder="Nombre de la evaluación"]')
+      .then(($input) => {
+        const value = $input.text()
+        expect(value).length.greaterThan(0)
+      })
   })
 })
