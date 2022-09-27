@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/David256/agenda-edit-surveys-tester#readme",
   "dependencies": {
-    "cypress": "^10.8.0"
+    "cypress": "^10.8.0",
+    "dotenv": "^16.0.2"
   }
 }
