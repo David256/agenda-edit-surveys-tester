@@ -1,0 +1,28 @@
+{
+  "name": "agenda-edit-surveys-tester",
+  "version": "1.0.0",
+  "description": "A tester that open the platform in the agenda edit page and check if the surveys stuff get be loaded.",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open": "cypress open",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/David256/agenda-edit-surveys-tester.git"
+  },
+  "keywords": [
+    "tester",
+    "testing",
+    "cypress"
+  ],
+  "author": "David Waster",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/David256/agenda-edit-surveys-tester/issues"
+  },
+  "homepage": "https://github.com/David256/agenda-edit-surveys-tester#readme",
+  "dependencies": {
+    "cypress": "^10.8.0"
+  }
+}
