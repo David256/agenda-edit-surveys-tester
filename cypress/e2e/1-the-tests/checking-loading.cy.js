@@ -17,8 +17,8 @@ Cypress.Commands.add('checkLoad', () => {
   cy.get('input[placeholder="Nombre de la evaluación"]', { timeout: 50000 })
     .then(($input) => {
       const value = $input.text()
-      // expect(value).length.greaterThan(0)
-      assert.isOk('Ok!', 'temporally ok')
+      expect(value).length.greaterThan(0)
+      // assert.isOk('Ok!', 'temporally ok')
     })
 })
 
@@ -91,7 +91,7 @@ context('Checking Loading', () => {
     cy.wait(5000)
   })
 
-  Cypress._.times(1, () => {
+  Cypress._.times(20, () => {
     describe('check load', () => {
       it('survey loaded by changing of tab', () => {
         cy.wait(5000)
